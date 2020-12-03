@@ -9,24 +9,36 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/text"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Home"
+        android:textSize="30dp"
+
+        app:layout_constraintVertical_bias="0.3"
+        android:id="@+id/text_view"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/text"
-        app:layout_constraintStart_toStartOf="@id/text"
-        android:id="@+id/button"
+        android:layout_marginTop="100dp"
+        android:text="カメラ起動"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/button2"
+        app:layout_constraintTop_toBottomOf="@id/text_view"
+        android:id="@+id/button_to_camera"
         />
 
-    <TextureView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/texture_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="機能2"
+        app:layout_constraintLeft_toRightOf="@id/button_to_camera"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_view"
+        android:id="@+id/button2"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
