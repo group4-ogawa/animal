@@ -41,13 +41,6 @@ class CameraActivity : Activity() {
     override fun onResume() {
         super.onResume()
 
-        /*camera_texture_view.surfaceTextureListener = object : TextureView.SurfaceTextureListener {
-            override fun onSurfaceTextureAvailable(surface: SurfaceTexture, width: Int, height: Int) {}
-            override fun onSurfaceTextureDestroyed(surface: SurfaceTexture): Boolean { return true }
-            override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture, width: Int, height: Int) {}
-            override fun onSurfaceTextureUpdated(surface: SurfaceTexture) {}
-        }*/
-
         if (camera_texture_view.isAvailable) {
             openCamera()
         } else {
