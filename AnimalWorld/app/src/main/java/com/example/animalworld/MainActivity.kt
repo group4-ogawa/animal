@@ -17,12 +17,16 @@ class MainActivity : Activity() {
             startActivity(intent)
         }
 
-        var count = 0
-        //ボタン2を押すと数をカウント
-        button2.setOnClickListener {
-            text_view.text = count++.toString()
+        //ボタンを押すと
+        button_to_dictionary.setOnClickListener {
+            val intent = Intent(this, DictionaryActivity::class.java)
+            startActivity(intent)
+        }
+
+        //ボタンを押すと
+        button_to_gallery.setOnClickListener {
+            val intent = Intent(this, GalleryActivity::class.java)
+            startActivity(intent)
         }
     }
-
-    //aaaaaaaaaaaaaaaaaaa
 }
