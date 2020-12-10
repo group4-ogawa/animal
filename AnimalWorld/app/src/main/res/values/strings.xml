@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AnimalWorld</string>
+    <string name="back">×</string>
+    <string name="cat">ねこ</string>
+    <string name="elephant">ぞう</string>
+    <string name="giraffe">きりん</string>
+    <string name="lion">らいおん</string>
+    <string name="turtle">かめ</string>
 </resources>
