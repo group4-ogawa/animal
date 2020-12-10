@@ -17,16 +17,18 @@ class MainActivity : Activity() {
             startActivity(intent)
         }
 
-        //ボタンを押すと
+        //ボタンを押すと解説画面に遷移
         button_to_dictionary.setOnClickListener {
             val intent = Intent(this, DictionaryActivity::class.java)
             startActivity(intent)
         }
 
-        //ボタンを押すと
+        //ボタンを押すとギャラリー画面に遷移
         button_to_gallery.setOnClickListener {
             val intent = Intent(this, GalleryActivity::class.java)
             startActivity(intent)
         }
     }
 }
+
+//bbbccccccccc
