@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">AnimalWorld</string>
     <string name="back">×</string>
-    <string name="defo">デフォルト</string>
+    <string name="defoname">デフォルト</string>
+    <string name="defocon">説明を表記</string>
     <string name="cat">ねこ</string>
     <string name="catcon">ねこのせつめい</string>
     <string name="catimage">catimage</string>
