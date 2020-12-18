@@ -7,6 +7,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.SurfaceTexture
@@ -16,8 +17,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Surface
 import android.view.TextureView
-import android.widget.Button
-import android.widget.TextView
+
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
@@ -28,6 +28,7 @@ import java.io.FileOutputStream
 import java.util.*
 
 
+@Suppress("DEPRECATION")
 class CameraActivity : Activity() {
     //CameraDeviceインスタンス用変数
     var mCameraDevice: CameraDevice? = null
@@ -122,7 +123,17 @@ class CameraActivity : Activity() {
                 }
 
                 // カメラプレビューを再開
-                mCaptureSession!!.setRepeatingRequest(mPreviewRequest!!, null, null)
+                //mCaptureSession!!.setRepeatingRequest(mPreviewRequest!!, null, null)
+
+                //識別
+                //do sikibetu
+
+                val name  = "lion"
+
+                val intent = Intent(this, DictionaryActivity::class.java)
+
+                intent.putExtra("NAME", name)
+                startActivity(intent)
 
                 //画像が出力されていたらトーストで通知
                 if (mFile != null) {
@@ -158,7 +169,7 @@ class CameraActivity : Activity() {
             mPreviewRequestBuilder.addTarget(surface)
 
             // CameraCaptureSessionを生成
-            mCameraDevice!!.createCaptureSession(Arrays.asList(surface),
+            mCameraDevice!!.createCaptureSession(listOf(surface),
                     object : CameraCaptureSession.StateCallback() {
                         override fun onConfigured(cameraCaptureSession: CameraCaptureSession) {
                             //Session設定完了(準備完了)時、プレビュー表示を開始
