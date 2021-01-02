@@ -2,7 +2,9 @@ package com.example.animalworld
 
 //import android.hardware.Camera;
 
+//import kotlinx.android.synthetic.main.activity_camera.*
 import android.Manifest
+import android.R.attr.bitmap
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ContentValues.TAG
@@ -17,18 +19,17 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Surface
 import android.view.TextureView
-
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
+import com.example.animalworld.Classifier.Recognition
 import kotlinx.android.synthetic.main.activity_camera.*
-//import kotlinx.android.synthetic.main.activity_camera.*
+import org.tensorflow.contrib.android.TensorFlowInferenceInterface
 import java.io.File
 import java.io.FileOutputStream
 import java.util.*
 
 
-@Suppress("DEPRECATION")
 class CameraActivity : Activity() {
     //CameraDeviceインスタンス用変数
     var mCameraDevice: CameraDevice? = null
@@ -108,6 +109,7 @@ class CameraActivity : Activity() {
         mCameraManager.openCamera("0", mStateCallback,null)
 
         camera_button.setOnClickListener {
+            var bmp : Bitmap? = null
             try {
                 //カメラプレビューを中断させる
                 mCaptureSession!!.stopRepeating()
@@ -117,23 +119,19 @@ class CameraActivity : Activity() {
                     mFile = File(this.getExternalFilesDir(null), "sample.jpg")
                     val fos = FileOutputStream(mFile)
                     //TextureViewに表示されている画像をBitmapで取得
-                    val bmp = camera_texture_view!!.bitmap
+                    bmp = camera_texture_view!!.bitmap
                     bmp!!.compress(Bitmap.CompressFormat.JPEG, 100, fos)
                     fos.close()
                 }
 
                 // カメラプレビューを再開
-                //mCaptureSession!!.setRepeatingRequest(mPreviewRequest!!, null, null)
-
-                //識別
-                //do sikibetu
-
-                val name  = "lion"
+                // mCaptureSession!!.setRepeatingRequest(mPreviewRequest!!, null, null)
 
                 val intent = Intent(this, DictionaryActivity::class.java)
-
-                intent.putExtra("NAME", name)
+                //getResultで得られた結果を次の画面に渡す
+                intent.putExtra("animal", getResult(bmp!!)) // getIntent().getFloatArrayListExtra("animal")で取得
                 startActivity(intent)
+
 
                 //画像が出力されていたらトーストで通知
                 if (mFile != null) {
@@ -169,7 +167,7 @@ class CameraActivity : Activity() {
             mPreviewRequestBuilder.addTarget(surface)
 
             // CameraCaptureSessionを生成
-            mCameraDevice!!.createCaptureSession(listOf(surface),
+            mCameraDevice!!.createCaptureSession(Arrays.asList(surface),
                     object : CameraCaptureSession.StateCallback() {
                         override fun onConfigured(cameraCaptureSession: CameraCaptureSession) {
                             //Session設定完了(準備完了)時、プレビュー表示を開始
@@ -192,5 +190,29 @@ class CameraActivity : Activity() {
             e.printStackTrace()
         }
 
+    }
+
+    private fun getResult(bmp : Bitmap): ArrayList<Float>? {
+        var result : ArrayList<Float>? = null
+        //result = arrayListOf(1,2,3,4,5)
+
+        val INPUT_SIZE = 299
+        val IMAGE_MEAN = 128
+        val IMAGE_STD = 128f
+        val INPUT_NAME = "Mul"
+        val OUTPUT_NAME = "final_result"
+        val MODEL_FILE = "file:///android_asset/optimized_graph.pb"
+        val LABEL_FILE = "file:///android_asset/output_labels.txt"
+        //var mTFInterface : TensorFlowInferenceInterface? =null;
+
+        val classifier: Classifier = TensorFlowImageClassifier.create(assets, MODEL_FILE, LABEL_FILE, INPUT_SIZE, IMAGE_MEAN, IMAGE_STD, INPUT_NAME, OUTPUT_NAME)
+
+        val recognitionList : List<Recognition?>? = classifier.recognizeImage(bmp)
+
+        for (i in 0..4) {
+            result!![i] = recognitionList!![i]!!.confidence!!
+        }
+
+        return result
     }
 }
