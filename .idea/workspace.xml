@@ -2,46 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80f90617-15aa-4857-8297-3a5fb7fb89cb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/androidTest/java/com/example/originalcamera/ExampleInstrumentedTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/main/java/com/example/originalcamera/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/main/res/values/colors.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/main/res/values/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/app/src/test/java/com/example/originalcamera/ExampleUnitTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OriginalCamera/settings.gradle" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/AnimalWorld/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AnimalWorld/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AnimalWorld/app/src/main/assets/label.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AnimalWorld/app/src/main/assets/tmodel.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnimalWorld/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/AnimalWorld/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnimalWorld/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AnimalWorld/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnimalWorld/app/src/main/java/com/example/animalworld/CameraActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AnimalWorld/app/src/main/java/com/example/animalworld/CameraActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnimalWorld/app/src/main/java/com/example/animalworld/TensorFlowImageClassifier.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AnimalWorld/app/src/main/java/com/example/animalworld/TensorFlowImageClassifier.kt" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,46 +19,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="948" />
-    <option name="width" value="981" />
-    <option name="height" value="1152" />
-  </component>
-  <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="animal-world" type="b2602c69:ProjectViewProjectNode" />
-              <item name="animal-world" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-    </panes>
+  <component name="ProjectId" id="1mYsp7JO4RsgUE1UtA6HGXUtoED" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/AnimalWorld" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -100,25 +42,5 @@
       <updated>1606457429384</updated>
     </task>
     <servers />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="775" extended-state="6" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" visible="true" weight="0.16136725" />
-      <window_info id="Structure" side_tool="true" />
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="Resources Explorer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info id="Captures" order="0" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="TODO" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Palette&#9;" />
-    </layout>
   </component>
 </project>
