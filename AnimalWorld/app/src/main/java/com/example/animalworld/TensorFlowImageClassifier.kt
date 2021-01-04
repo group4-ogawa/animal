@@ -2,6 +2,7 @@ package com.example.animalworld
 
 import android.annotation.SuppressLint
 import android.content.res.AssetManager
+import android.content.res.Resources
 import android.graphics.Bitmap
 import android.os.Build
 import android.os.Trace
@@ -9,9 +10,7 @@ import android.util.Log
 import androidx.annotation.RequiresApi
 import com.example.animalworld.Classifier.Recognition
 import org.tensorflow.contrib.android.TensorFlowInferenceInterface
-import java.io.BufferedReader
-import java.io.IOException
-import java.io.InputStreamReader
+import java.io.*
 import java.util.*
 
 class TensorFlowImageClassifier private constructor() : Classifier {
@@ -37,6 +36,9 @@ class TensorFlowImageClassifier private constructor() : Classifier {
         Trace.beginSection("preprocessBitmap")
         // Preprocess the image data from 0-255 int to normalized float based
         // on the provided parameters.
+        println("${intValues[0]} intvalues[0]")
+
+
         bitmap!!.getPixels(
             intValues,
             0,
@@ -46,6 +48,8 @@ class TensorFlowImageClassifier private constructor() : Classifier {
             bitmap.width,
             bitmap.height
         )
+        println("${intValues[0]} intvalues[0]")
+
         for (i in intValues.indices) {
             val `val` = intValues[i]
             floatValues[i * 3 + 0] = ((`val` shr 16 and 0xFF) - imageMean) / imageStd
@@ -152,27 +156,58 @@ class TensorFlowImageClassifier private constructor() : Classifier {
 
             // Read the label names into memory.
             // TODO(andrewharp): make this handle non-assets.
-            val actualFilename =
+            val actualFilename = //"label.txt"
                 labelFilename.split("file:///android_asset/").toTypedArray()[1]
-            Log.i(
+            /*Log.i(
                 TAG,
                 "Reading labels from: $actualFilename"
-            )
+            )*/
             var br: BufferedReader? = null
             try {
                 br = BufferedReader(
                     InputStreamReader(
+                        //FileInputStream("/app/src/main/assets/label.txt")
                         assetManager.open(actualFilename)
                     )
                 )
-                var line: String
-                while (br.readLine().also { line = it } != null) {
+                var line: String? = ""
+                while (line != null) {
+                    //print(line)
+                    line = br.readLine()
                     c.labels.add(line)
                 }
                 br.close()
+                /*c.labels.add("lion")
+                c.labels.add("elephant")
+                c.labels.add("cat")
+                c.labels.add("turtle")
+                c.labels.add("giraffe")*/
             } catch (e: IOException) {
                 throw RuntimeException("Problem reading label file!", e)
             }
+
+            //モデルファイルを開く
+/*
+            //モデルファイルを開く
+            val file = File("/app/src/main/assets/tmodel.pb")
+            var inputStream: FileInputStream? = null
+            try {
+                inputStream = FileInputStream(file)
+            } catch (e: FileNotFoundException) {
+                e.printStackTrace()
+            }
+            //TensorFlowにモデルファイルを読み込む
+            if(inputStream==null){
+                println("abaabbbbabaaaabbbbaaaa")
+                println("abaabbbbabaaaabbbbaaaa")
+                println("abaabbbbabaaaabbbbaaaa")
+            }
+            //TensorFlowにモデルファイルを読み込む
+            c.inferenceInterface = TensorFlowInferenceInterface(inputStream)
+            if(inputStream==null){
+                print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+            }
+*/
             c.inferenceInterface = TensorFlowInferenceInterface(assetManager, modelFilename)
 
             // The shape of the output is [N, NUM_CLASSES], where N is the batch size.
@@ -194,6 +229,7 @@ class TensorFlowImageClassifier private constructor() : Classifier {
             // Pre-allocate buffers.
             c.outputNames = arrayOf(outputName)
             c.intValues = IntArray(inputSize * inputSize)
+            //println("ssss${inputSize}")
             c.floatValues = FloatArray(inputSize * inputSize * 3)
             c.outputs = FloatArray(numClasses)
             return c

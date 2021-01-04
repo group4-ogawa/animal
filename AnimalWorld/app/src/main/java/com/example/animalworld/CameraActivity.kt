@@ -4,7 +4,6 @@ package com.example.animalworld
 
 //import kotlinx.android.synthetic.main.activity_camera.*
 import android.Manifest
-import android.R.attr.bitmap
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ContentValues.TAG
@@ -23,10 +22,14 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import com.example.animalworld.Classifier.Recognition
+import com.example.animalworld.ml.ConvertedModel
 import kotlinx.android.synthetic.main.activity_camera.*
-import org.tensorflow.contrib.android.TensorFlowInferenceInterface
+import org.tensorflow.lite.DataType
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.File
 import java.io.FileOutputStream
+import java.nio.ByteBuffer
+import java.nio.ByteOrder
 import java.util.*
 
 
@@ -124,14 +127,61 @@ class CameraActivity : Activity() {
                     fos.close()
                 }
 
-                // カメラプレビューを再開
-                // mCaptureSession!!.setRepeatingRequest(mPreviewRequest!!, null, null)
+
+                //}
+
+                //Thread(Runnable {
+                    //ここで処理時間の長い処理を実行する
+                    /*val intent = Intent(this, DictionaryActivity::class.java)
+                    //GlobalScope.launch {
+                    //getResultで得られた結果を次の画面に渡す
+                    intent.putExtra("animal", getResult(bmp!!)) // getIntent().getFloatArrayListExtra("animal")で取得
+                    startActivity(intent)*/
+                val model = ConvertedModel.newInstance(applicationContext)
+
+                // Creates inputs for reference.
+                val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 50, 50, 3), DataType.FLOAT32)
+                val IMAGE_WIDTH = 50
+                val IMAGE_HEIGHT = 50
+                val IMAGE_CHANNEL = 3
+
+                val scaledBitmap = Bitmap.createScaledBitmap(bmp!!, IMAGE_WIDTH, IMAGE_HEIGHT, false)
+
+                val resizedImageBuffer = ByteBuffer
+                    .allocate(IMAGE_WIDTH * IMAGE_WIDTH * 4) // 4 means channel
+                scaledBitmap.copyPixelsToBuffer(resizedImageBuffer)
+                resizedImageBuffer.rewind()
+
+                val inputBuffer = ByteBuffer
+                    .allocateDirect(IMAGE_WIDTH * IMAGE_WIDTH * IMAGE_CHANNEL * 4) // 4 means float
+                    .order(ByteOrder.nativeOrder())
+
+                for (index in (0 until (IMAGE_WIDTH * IMAGE_HEIGHT * 4))) { // 4 means channel
+                    if ((index % 4) < 3) {
+                        inputBuffer.putFloat(resizedImageBuffer[index].toInt().and(0xFF).toFloat())
+                    }
+                }
+                inputBuffer.rewind()
+                inputFeature0.loadBuffer(inputBuffer)
+
+                // Runs model inference and gets result.
+                val outputs = model.process(inputFeature0)
+                val outputFeature0 = outputs.outputFeature0AsTensorBuffer
+
+                val array : FloatArray =  outputFeature0.floatArray
+
+                // Releases model resources if no longer used.
+                model.close()
 
                 val intent = Intent(this, DictionaryActivity::class.java)
+                //GlobalScope.launch {
                 //getResultで得られた結果を次の画面に渡す
-                intent.putExtra("animal", getResult(bmp!!)) // getIntent().getFloatArrayListExtra("animal")で取得
+                intent.putExtra("animal", array) // getIntent().getFloatArrayListExtra("animal")で取得
                 startActivity(intent)
+                //}).start()
 
+                // カメラプレビューを再開
+               // mCaptureSession!!.setRepeatingRequest(mPreviewRequest!!, null, null)
 
                 //画像が出力されていたらトーストで通知
                 if (mFile != null) {
@@ -192,27 +242,49 @@ class CameraActivity : Activity() {
 
     }
 
-    private fun getResult(bmp : Bitmap): ArrayList<Float>? {
+    /*private fun getResult(bmp : Bitmap): ArrayList<Float>? {
         var result : ArrayList<Float>? = null
-        //result = arrayListOf(1,2,3,4,5)
+        result = arrayListOf<Float>(0f,0f,0f,0f,0f)
 
-        val INPUT_SIZE = 299
+        /*val INPUT_SIZE = 299
         val IMAGE_MEAN = 128
-        val IMAGE_STD = 128f
-        val INPUT_NAME = "Mul"
-        val OUTPUT_NAME = "final_result"
-        val MODEL_FILE = "file:///android_asset/optimized_graph.pb"
-        val LABEL_FILE = "file:///android_asset/output_labels.txt"
+        val IMAGE_STD = 128f*/
+        val INPUT_SIZE = 224
+        val IMAGE_MEAN = 117
+        val IMAGE_STD = 1f
+
+        /*val INPUT_NAME = "input"
+        val OUTPUT_NAME = "output"
+        val MODEL_FILE = "file:///android_asset/tensorflow_inception_graph.pb"
+        val LABEL_FILE = "file:///android_asset/imagenet_comp_graph_label_strings.txt"*/
+        val INPUT_NAME = "import/keras_learning_phase/input"
+        val OUTPUT_NAME = "import/activation_35_1/softmax"
+        val MODEL_FILE = "file:///android_asset/tmodel.pb"//"/app/src/main/assets/tmodel.pb"
+
+        val LABEL_FILE = "file:///android_asset/label.txt" //"/app/src/main/assets/label.txt"
+
+
         //var mTFInterface : TensorFlowInferenceInterface? =null;
 
         val classifier: Classifier = TensorFlowImageClassifier.create(assets, MODEL_FILE, LABEL_FILE, INPUT_SIZE, IMAGE_MEAN, IMAGE_STD, INPUT_NAME, OUTPUT_NAME)
 
-        val recognitionList : List<Recognition?>? = classifier.recognizeImage(bmp)
+        val bitmap = Bitmap.createScaledBitmap(bmp, INPUT_SIZE, INPUT_SIZE, true)
 
-        for (i in 0..4) {
-            result!![i] = recognitionList!![i]!!.confidence!!
+        println("${bitmap.width} Width")
+        println("${bitmap.height} Height")
+
+        val recognitionList : List<Recognition?>? = classifier.recognizeImage(bitmap)
+
+        for (i in recognitionList!!.indices) {
+            println("${recognitionList!!.size} sizeefaszfss")
+            println("sisisi")
+
+
+            result[i] = recognitionList!![i]!!.confidence!!
         }
 
         return result
     }
+
+     */
 }
