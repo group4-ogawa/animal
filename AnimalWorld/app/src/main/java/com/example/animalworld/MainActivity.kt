@@ -19,8 +19,8 @@ class MainActivity : Activity() {
 
         //ボタンを押すと解説画面に遷移
         button_to_dictionary.setOnClickListener {
-            val intent = Intent(this, DictionaryActivity::class.java)
-            startActivity(intent)
+            /*val intent = Intent(this, DictionaryActivity::class.java)
+            startActivity(intent)*/
         }
 
         //ボタンを押すとギャラリー画面に遷移

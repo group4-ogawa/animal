@@ -11,6 +11,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.graphics.SurfaceTexture
 import android.hardware.camera2.*
 import android.os.Build
@@ -40,6 +41,8 @@ class CameraActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
+        camera_text.setTextColor(Color.RED)
+        camera_text.bringToFront()
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
@@ -124,6 +127,7 @@ class CameraActivity : Activity() {
                     val fos = FileOutputStream(mFile)
                     //TextureViewに表示されている画像をBitmapで取得
                     bmp = camera_texture_view!!.bitmap
+                    val bmp = Bitmap.createBitmap(bmp!!,80,80,920,920)
                     bmp!!.compress(Bitmap.CompressFormat.JPEG, 100, fos)
                     fos.close()
                 }
@@ -228,6 +232,9 @@ class CameraActivity : Activity() {
         // Runs model inference and gets result.
         val outputs = model.process(inputFeature0)
         val outputFeature0 = outputs.outputFeature0AsTensorBuffer
+
+
+        println(outputFeature0.intArray.joinToString(separator = ""))
 
         // Releases model resources if no longer used.
         model.close()
