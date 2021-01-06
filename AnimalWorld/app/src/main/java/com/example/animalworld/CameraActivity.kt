@@ -127,7 +127,7 @@ class CameraActivity : Activity() {
                     val fos = FileOutputStream(mFile)
                     //TextureViewに表示されている画像をBitmapで取得
                     bmp = camera_texture_view!!.bitmap
-                    val bmp = Bitmap.createBitmap(bmp!!,80,80,920,920)
+                    //val bmp = Bitmap.createBitmap(bmp!!,80,80,920,920)
                     bmp!!.compress(Bitmap.CompressFormat.JPEG, 100, fos)
                     fos.close()
                 }
