@@ -22,7 +22,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 
-import com.example.animalworld.ml.ConvertedModel
+//import com.example.animalworld.ml.ConvertedModel
 import kotlinx.android.synthetic.main.activity_camera.*
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
@@ -132,13 +132,12 @@ class CameraActivity : Activity() {
 
                 val classifier = TensorFlowImageClassifier(this)
 
-
-
-                val intent = Intent(this, DictionaryActivity::class.java)
-                //getResultで得られた結果を次の画面に渡す
-                intent.putExtra("animal", classifier.classifyImageFromPath(bmp!!)) // getIntent().getFloatArrayListExtra("animal")で取得
-                startActivity(intent)
-
+                Thread(Runnable {
+                    val intent = Intent(this, DictionaryActivity::class.java)
+                    //getResultで得られた結果を次の画面に渡す
+                    intent.putExtra("animal", classifier.classifyImageFromPath(bmp!!)) // getIntent().getFloatArrayListExtra("animal")で取得
+                    startActivity(intent)
+                }).start()
                 // カメラプレビューを再開
                // mCaptureSession!!.setRepeatingRequest(mPreviewRequest!!, null, null)
 
@@ -201,7 +200,7 @@ class CameraActivity : Activity() {
 
     }
 
-    private fun getResultArray(bitmap: Bitmap) : FloatArray {
+    /*private fun getResultArray(bitmap: Bitmap) : FloatArray {
         val model = ConvertedModel.newInstance(applicationContext)
 
         // Creates inputs for reference.
@@ -237,5 +236,5 @@ class CameraActivity : Activity() {
         model.close()
 
         return outputFeature0.floatArray
-    }
+    }*/
 }
