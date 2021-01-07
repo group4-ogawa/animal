@@ -20,24 +20,21 @@ class DictionaryActivity : Activity(), RecyclerViewHolder.ItemClickListener {
 
         array!!.toMutableList()
 
-        val animalList = mutableListOf<String>("cat","lion","elephant","giraffe","turtle")
         val suggestionAnimals = mutableListOf<Animal>()
 
-        val copyArray = array.clone().toMutableList()
+        array.zip(mutableListOf("cat","lion","elephant","giraffe","turtle")).forEach{
+            suggestionAnimals.add(Animal(it.second, it.first))
+        }
 
-        var index = 0;
-        repeat(3) {
-            index = copyArray.indexOf(copyArray.max())
-            suggestionAnimals.add(Animal(animalList[index], copyArray.max()!!))
-            copyArray.removeAt(index)
-            animalList.removeAt(index)
-            //println("$index , ${copyArray.size}")
+        suggestionAnimals.apply {
+            sortByDescending {it.confidence}
+            repeat(2) {
+                removeAt(lastIndex)
+            }
         }
 
         recycler_view.adapter = RecyclerAdapter(this, this, suggestionAnimals)
         recycler_view.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-
-
 
         /*var infoFileName = ""
         when (resultIndex) {
@@ -48,13 +45,15 @@ class DictionaryActivity : Activity(), RecyclerViewHolder.ItemClickListener {
         /*val intent=getIntent();
         val states = intent.getIntExtra("S",0);*/
         //if(states==1) {
-          //  setContentView(R.layout.activity_dictionary)
+        //  setContentView(R.layout.activity_dictionary)
         //} else if(states==2){
-          //  setContentView(R.layout.activity_main)
+        //  setContentView(R.layout.activity_main)
         //}
         //else{
-         //   setContentView(R.layout.activity_zoo)
+        //   setContentView(R.layout.activity_zoo)
         //}
+
+
 
     }
 
