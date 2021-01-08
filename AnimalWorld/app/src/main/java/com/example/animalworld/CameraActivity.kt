@@ -2,11 +2,13 @@ package com.example.animalworld
 
 //import android.hardware.Camera;
 
+//import kotlinx.android.synthetic.main.activity_camera.*
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.SurfaceTexture
@@ -16,15 +18,18 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Surface
 import android.view.TextureView
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
+
+//import com.example.animalworld.ml.ConvertedModel
 import kotlinx.android.synthetic.main.activity_camera.*
-//import kotlinx.android.synthetic.main.activity_camera.*
+import org.tensorflow.lite.DataType
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.File
 import java.io.FileOutputStream
+import java.nio.ByteBuffer
+import java.nio.ByteOrder
 import java.util.*
 
 
@@ -106,7 +111,9 @@ class CameraActivity : Activity() {
         }
         mCameraManager.openCamera("0", mStateCallback,null)
 
+        //撮影ボタンが押されたときの処理. 分類して遷移
         camera_button.setOnClickListener {
+            var bmp : Bitmap? = null
             try {
                 //カメラプレビューを中断させる
                 mCaptureSession!!.stopRepeating()
@@ -116,13 +123,23 @@ class CameraActivity : Activity() {
                     mFile = File(this.getExternalFilesDir(null), "sample.jpg")
                     val fos = FileOutputStream(mFile)
                     //TextureViewに表示されている画像をBitmapで取得
-                    val bmp = camera_texture_view!!.bitmap
+                    bmp = camera_texture_view!!.bitmap
                     bmp!!.compress(Bitmap.CompressFormat.JPEG, 100, fos)
                     fos.close()
                 }
 
+                //Thread(Runnable { ここに重い処理 }).start()
+
+                val classifier = TensorFlowImageClassifier(this)
+
+                Thread(Runnable {
+                    val intent = Intent(this, DictionaryActivity::class.java)
+                    //getResultで得られた結果を次の画面に渡す
+                    intent.putExtra("animal", classifier.classifyImageFromPath(bmp!!)) // getIntent().getFloatArrayListExtra("animal")で取得
+                    startActivity(intent)
+                }).start()
                 // カメラプレビューを再開
-                mCaptureSession!!.setRepeatingRequest(mPreviewRequest!!, null, null)
+               // mCaptureSession!!.setRepeatingRequest(mPreviewRequest!!, null, null)
 
                 //画像が出力されていたらトーストで通知
                 if (mFile != null) {
@@ -182,4 +199,42 @@ class CameraActivity : Activity() {
         }
 
     }
+
+    /*private fun getResultArray(bitmap: Bitmap) : FloatArray {
+        val model = ConvertedModel.newInstance(applicationContext)
+
+        // Creates inputs for reference.
+        val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 50, 50, 3), DataType.FLOAT32)
+        val IMAGE_WIDTH = 50
+        val IMAGE_HEIGHT = 50
+        val IMAGE_CHANNEL = 3
+
+        val scaledBitmap = Bitmap.createScaledBitmap(bitmap, IMAGE_WIDTH, IMAGE_HEIGHT, false)
+
+        val resizedImageBuffer = ByteBuffer
+            .allocate(IMAGE_WIDTH * IMAGE_WIDTH * 4) // 4 means channel
+        scaledBitmap.copyPixelsToBuffer(resizedImageBuffer)
+        resizedImageBuffer.rewind()
+
+        val inputBuffer = ByteBuffer
+            .allocateDirect(IMAGE_WIDTH * IMAGE_WIDTH * IMAGE_CHANNEL * 4) // 4 means float
+            .order(ByteOrder.nativeOrder())
+
+        for (index in (0 until (IMAGE_WIDTH * IMAGE_HEIGHT * 4))) { // 4 means channel
+            if ((index % 4) < 3) {
+                inputBuffer.putFloat(resizedImageBuffer[index].toInt().and(0xFF).toFloat())
+            }
+        }
+        inputBuffer.rewind()
+        inputFeature0.loadBuffer(inputBuffer)
+
+        // Runs model inference and gets result.
+        val outputs = model.process(inputFeature0)
+        val outputFeature0 = outputs.outputFeature0AsTensorBuffer
+
+        // Releases model resources if no longer used.
+        model.close()
+
+        return outputFeature0.floatArray
+    }*/
 }

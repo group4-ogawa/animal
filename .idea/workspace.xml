@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="80f90617-15aa-4857-8297-3a5fb7fb89cb" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="80f90617-15aa-4857-8297-3a5fb7fb89cb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/AnimalWorld/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AnimalWorld/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AnimalWorld/app/src/main/assets/label.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AnimalWorld/app/src/main/assets/tmodel.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnimalWorld/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/AnimalWorld/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnimalWorld/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AnimalWorld/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnimalWorld/app/src/main/java/com/example/animalworld/CameraActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AnimalWorld/app/src/main/java/com/example/animalworld/CameraActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnimalWorld/app/src/main/java/com/example/animalworld/TensorFlowImageClassifier.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AnimalWorld/app/src/main/java/com/example/animalworld/TensorFlowImageClassifier.kt" afterDir="false" />
+    </list>
+>>>>>>> a3649b217f907b3253f5c852062b89e0f0cd7e1a
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,7 +23,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectId" id="1locvthimWoICXsMnqd1Pii6AQj" />
+=======
+  <component name="ProjectId" id="1mYsp7JO4RsgUE1UtA6HGXUtoED" />
+>>>>>>> a3649b217f907b3253f5c852062b89e0f0cd7e1a
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -19,7 +36,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/AnimalWorld" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -34,10 +51,13 @@
     </task>
     <servers />
   </component>
+<<<<<<< HEAD
   <component name="WindowStateProjectService">
     <state x="421" y="135" key="FileChooserDialogImpl" timestamp="1608267132852">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state x="421" y="135" key="FileChooserDialogImpl/0.0.1280.760@0.0.1280.760" timestamp="1608267132852" />
   </component>
+=======
+>>>>>>> a3649b217f907b3253f5c852062b89e0f0cd7e1a
 </project>

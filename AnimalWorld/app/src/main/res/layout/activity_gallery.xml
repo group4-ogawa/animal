@@ -18,4 +18,173 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/button_to_animalworld"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="370dp"
+        android:layout_marginEnd="143dp"
+        android:layout_marginRight="143dp"
+        android:layout_marginBottom="80dp"
+        android:text="animalworld"
+        app:layout_constraintBottom_toTopOf="@+id/button_to_giraffe"
+        app:layout_constraintEnd_toStartOf="@+id/button_to_turtle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_to_turtle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="370dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginRight="37dp"
+        android:layout_marginBottom="78dp"
+        android:text="turtle"
+        app:layout_constraintBottom_toTopOf="@+id/button_to_cat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_to_animalworld"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/button_to_giraffe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="144dp"
+        android:layout_marginRight="144dp"
+        android:layout_marginBottom="78dp"
+        android:text="giraffe"
+        app:layout_constraintBottom_toTopOf="@+id/button_to_rion"
+        app:layout_constraintEnd_toStartOf="@+id/button_to_cat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_to_animalworld" />
+
+    <Button
+        android:id="@+id/button_to_cat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginRight="37dp"
+        android:layout_marginBottom="80dp"
+        android:text="cat"
+        app:layout_constraintBottom_toTopOf="@+id/button_to_elephant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_to_giraffe"
+        app:layout_constraintTop_toBottomOf="@+id/button_to_turtle" />
+
+    <Button
+        android:id="@+id/button_to_rion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginRight="84dp"
+        android:layout_marginBottom="50dp"
+        android:text="rion"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_to_elephant"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_to_giraffe" />
+
+    <Button
+        android:id="@+id/button_to_elephant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="50dp"
+        android:text="elephant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_to_rion"
+        app:layout_constraintTop_toBottomOf="@+id/button_to_cat" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="220dp"
+        android:layout_height="381dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/miyadsc_6303_tp_v"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_to_elephant"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view"
+        app:layout_constraintVertical_bias="0.679" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="197dp"
+        android:layout_height="622dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="350dp"
+        android:src="@drawable/sampleelephant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/text_view"
+        app:layout_constraintVertical_bias="0.452" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="225dp"
+        android:layout_height="389dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_to_elephant"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        android:src="@drawable/samplerion" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="182dp"
+        android:layout_height="327dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginBottom="450dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.425"
+        app:layout_constraintStart_toEndOf="@+id/button_to_animalworld"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.431"
+        android:src="@drawable/samplecat" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="165dp"
+        android:layout_height="475dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="93dp"
+        android:layout_marginEnd="10000dp"
+        android:layout_marginRight="10000dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_to_elephant"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/button_to_animalworld"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        android:src="@drawable/sampleturtle" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
