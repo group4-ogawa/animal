@@ -12,7 +12,7 @@ class DictionaryActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dictionary)
 
-        var an = 3 //判別結果を代入
+        var an = 2 //判別結果を代入
         var aName = findViewById<TextView>(R.id.name_view)
         var aContent = findViewById<TextView>(R.id.content_view)
         var aImage = findViewById<ImageView>(R.id.image_view)
@@ -26,7 +26,7 @@ class DictionaryActivity : Activity() {
             2 ->{
                 aName.setText(R.string.elephant)
                 aImage.setImageResource(R.drawable.elephantimage)
-                aContent.setText(R.string.elephant)
+                aContent.setText(R.string.elephantcon)
             }//ゾウの解説を表示
             3 ->{
                 aName.setText(R.string.giraffe)
