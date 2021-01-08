@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_dictionary.*
 import kotlinx.android.synthetic.main.activity_main.text_view
 import kotlinx.android.synthetic.main.suggestion.*
+import org.w3c.dom.Text
 import java.io.BufferedReader
 import java.io.InputStream
 import java.io.InputStreamReader
@@ -78,7 +79,8 @@ class DictionaryActivity : Activity(), RecyclerViewHolder.ItemClickListener {
         var aName = findViewById<TextView>(R.id.name_view)
         var aContent = findViewById<TextView>(R.id.content_view)
         var aImage = findViewById<ImageView>(R.id.image_view)
-
+        var aWeight = findViewById<TextView>(R.id.weight_View)
+        var aHeight = findViewById<TextView>(R.id.height_View)
         var inputStream : InputStream? = null
         var bufferedReader : BufferedReader? = null
         val stringBuilder = StringBuilder()
@@ -87,26 +89,36 @@ class DictionaryActivity : Activity(), RecyclerViewHolder.ItemClickListener {
             "cat" -> {
                 aName.setText(R.string.cat)
                 aImage.setImageResource(R.drawable.catimage)
+                aWeight.setText(R.string.cweight)
+                aHeight.setText(R.string.cheight)
                 //aContent.setText(R.string.catcon)
             }//ネコの解説を表示
             "elephant" ->{
                 aName.setText(R.string.elephant)
                 aImage.setImageResource(R.drawable.elephantimage)
+                aWeight.setText(R.string.eweight)
+                aHeight.setText(R.string.eheight)
                 //aContent.setText(R.string.elephantcon)
             }//ゾウの解説を表示
             "giraffe" ->{
                 aName.setText(R.string.giraffe)
                 aImage.setImageResource(R.drawable.giraffeimage)
+                aWeight.setText(R.string.gweight)
+                aHeight.setText(R.string.gheight)
                 //aContent.setText(R.string.giraffecon)
             }//キリンの解説を表示
             "lion" ->{
                 aName.setText(R.string.lion)
                 aImage.setImageResource(R.drawable.lionimage)
+                aWeight.setText(R.string.lheight)
+                aHeight.setText(R.string.lheight)
                // aContent.setText(R.string.lioncon)
             }//ライオンの解説を表示
             "turtle" ->{
                 aName.setText(R.string.turtle)
                 aImage.setImageResource(R.drawable.turtleimage)
+                aWeight.setText(R.string.tweight)
+                aHeight.setText(R.string.theight)
                // aContent.setText(R.string.turtlecon)
             }//カメの解説を表示
         }
