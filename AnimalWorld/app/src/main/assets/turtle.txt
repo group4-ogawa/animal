@@ -1,6 +1,4 @@
-カメ (turtle)
-
-カメ（亀）は、爬虫綱カメ目（Testudines）に分類される生物の総称。
-カメ目は、多様な爬虫類グループの中でも比較的早期の約2億1000万年前（中生代三畳紀後期）に出現し、甲羅を本格的に発達させたことで特徴づけられる一群で、現代まで継続して繁栄している。ヒトの出現、乱獲によって絶滅した種、あるいは危惧される種があるが、それでも、グループ全体としては水・陸の両域で多様性を維持している。
-
-文化的側面で言えば、亀は、堅い守りの象徴である一方で鈍重を揶揄する語として使われる。また、歩みの遅さではなく着実さを肯定的に捉える場合には、実直さや勤勉さなどを褒めるための比喩となる。古来、中国やインドでは神獣として扱われ、中国文化の影響下にあった地域では吉兆とされる。
+Turtles are a general term for organisms classified in the reptile order Turtidae.
+The most important morphological feature of turtles is their carapace. The carapace consists of two shells: one integrated with the spine and ribs, and the other consisting of scales.
+They inhabit a variety of environments, including freshwater bodies, oceans, deserts, grasslands, and forests. Their diet varies from species to species, and some species are known to eat fish, amphibians, reptiles, mammals, insects, shellfish, crustaceans, plant leaves, fruits, and mushrooms.
+Turtles have a slow cell metabolism cycle and are considered to be one of the most long-lived of animals. The average lifespan is about 60 years and some live over 150 years.
