@@ -1,3 +1,45 @@
 <resources>
     <string name="app_name">AnimalWorld</string>
+    <string name="back">×</string>
+    <string name="defoname">デフォルト</string>
+    <string name="defocon">説明を表記</string>
+    <string name="weight">weight</string>
+    <string name="height">height</string>
+    <string name="weightl">weight:</string>
+    <string name="heightl">height:</string>
+
+    <string name="cat">Cat</string>
+    <string name="catcon">ねこのせつめい</string>
+    <string name="catimage">catimage</string>
+    <string name="cweight">2.5~9kg</string>
+    <string name="cheight">15~75cm</string>
+
+    <string name="elephant">Elephant</string>
+    <string name="elephantcon">あ\nあ\n</string>
+    <string name="elephantimage">elephantimage</string>
+    <string name="eweight">4000~7500kg</string>
+    <string name="eheight">2.5~3.8m</string>
+
+    <string name="giraffe">Giraffe</string>
+    <string name="giraffecon">きりんのせつめい</string>
+    <string name="giraffeimage">giraffeimage</string>
+    <string name="gweight">800~1900kg</string>
+    <string name="gheight">4.0~5.3m</string>
+
+    <string name="lion">Lion</string>
+    <string name="lioncon">らいおんのせつめい</string>
+    <string name="lionimage">lionimage</string>
+    <string name="lweight">120~225kg</string>
+    <string name="lheight">1.4~2.5m</string>
+
+    <string name="turtle">Turtle</string>
+    <string name="turtlecon">かめのせつめい</string>
+    <string name="turtleimage">turtleimage</string>
+    <string name="tweight">100~160g(small),300~900kg(large)</string>
+    <string name="theight">6~9cm(small),1.8~2.2m(large)</string>
+
+
+    <string name="info">info</string>
+
+
 </resources>
