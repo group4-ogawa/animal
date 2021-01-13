@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_dictionary.*
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_dictionary.*
-import kotlinx.android.synthetic.main.activity_main.text_view
+
 import kotlinx.android.synthetic.main.suggestion.*
 import java.io.BufferedReader
 import java.io.InputStream
@@ -43,11 +43,6 @@ class DictionaryActivity : Activity(), RecyclerViewHolder.ItemClickListener {
         recycler_view.adapter = RecyclerAdapter(this, this, suggestionAnimals)
         recycler_view.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-        //ボタンを押すとメイン画面に遷移
-        button_to_main.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
         /*var infoFileName = ""
         when (resultIndex) {
             0 -> infoFileName = "lion"
@@ -131,6 +126,11 @@ class DictionaryActivity : Activity(), RecyclerViewHolder.ItemClickListener {
         aContent.setText(stringBuilder.toString())
 
 
+        //ボタンを押すとメイン画面に遷移
+        button_to_main.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 

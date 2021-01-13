@@ -16,6 +16,8 @@ class RecyclerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     val itemImageView: ImageView = view.findViewById(R.id.itemImageView)
 
+    val rank: TextView = view.findViewById(R.id.rank)
+
     init {
         // layoutの初期設定するときはココ
     }

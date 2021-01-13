@@ -2,7 +2,7 @@ package com.example.animalworld
 
 data class Animal(val name : String, val confidence : Float) {
     override fun toString(): String {
-        val jName = name.let{
+        /*val jName = name.let{
             when(it) {
                 "cat" -> "ネコ"
                 "lion" -> "ライオン"
@@ -11,8 +11,8 @@ data class Animal(val name : String, val confidence : Float) {
                 "turtle" -> "カメ"
                 else -> "不明"
             }
-        }
-        return "$jName \n確度 : ${"%.3f".format(confidence*100)} ％"
+        }*/
+        return "$name \n${"%.2f".format(confidence*100)} ％"
     }
 
 }
