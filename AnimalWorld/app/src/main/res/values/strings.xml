@@ -5,7 +5,8 @@
     <string name="defocon">説明を表記</string>
     <string name="weight">weight</string>
     <string name="height">height</string>
-
+    <string name="weightl">weight:</string>
+    <string name="heightl">height:</string>
 
     <string name="cat">Cat</string>
     <string name="catcon">ねこのせつめい</string>

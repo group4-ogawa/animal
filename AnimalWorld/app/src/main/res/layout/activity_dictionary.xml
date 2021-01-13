@@ -39,12 +39,13 @@
 
     <TextView
         android:id="@+id/weight_View"
-        android:layout_width="151dp"
-        android:layout_height="35dp"
+        android:layout_width="110dp"
+        android:layout_height="37dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="6dp"
-        android:layout_marginEnd="52dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="56dp"
+        android:gravity="center|start"
         android:text="@string/weight"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/image_view"
@@ -52,22 +53,24 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/name_view"
         app:layout_constraintTop_toBottomOf="@+id/button_to_main"
-        app:layout_constraintVertical_bias="0.65" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/height_View"
-        android:layout_width="151dp"
-        android:layout_height="35dp"
+        android:layout_width="110dp"
+        android:layout_height="37dp"
         android:layout_marginStart="34dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="51dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="16dp"
+        android:gravity="center|start"
         android:text="@string/height"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/image_view"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/name_view"
-        app:layout_constraintTop_toBottomOf="@+id/weight_View" />
+        app:layout_constraintTop_toBottomOf="@+id/weight_View"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/image_view"
@@ -89,16 +92,17 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ScrollView
-        android:layout_width="382dp"
-        android:layout_height="323dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="22dp"
+        android:layout_width="383dp"
+        android:layout_height="312dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_view">
+        app:layout_constraintTop_toBottomOf="@+id/image_view"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/content_view"
@@ -115,5 +119,33 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_view" />
     </ScrollView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="71dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginBottom="56dp"
+        android:gravity="center"
+        android:text="@string/weightl"
+        app:layout_constraintBottom_toTopOf="@+id/image_view"
+        app:layout_constraintEnd_toStartOf="@+id/weight_View"
+        app:layout_constraintStart_toEndOf="@+id/name_view"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewh"
+        android:layout_width="70dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="19dp"
+        android:gravity="center"
+        android:text="@string/heightl"
+        app:layout_constraintBottom_toTopOf="@+id/image_view"
+        app:layout_constraintEnd_toStartOf="@+id/height_View"
+        app:layout_constraintStart_toEndOf="@+id/name_view"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
