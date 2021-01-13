@@ -1,4 +1,23 @@
 <resources>
     <string name="app_name">AnimalWorld</string>
+    <string name="back">×</string>
+    <string name="defoname">デフォルト</string>
+    <string name="defocon">説明を表記</string>
+    <string name="cat">ねこ</string>
+    <string name="catcon">ねこのせつめい</string>
+    <string name="catimage">catimage</string>
+    <string name="elephant">ぞう</string>
+    <string name="elephantcon">あ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\n</string>
+    <string name="elephantimage">elephantimage</string>
+    <string name="giraffe">きりん</string>
+    <string name="giraffecon">きりんのせつめい</string>
+    <string name="giraffeimage">giraffeimage</string>
+    <string name="lion">らいおん</string>
+    <string name="lioncon">らいおんのせつめい</string>
+    <string name="lionimage">lionimage</string>
+    <string name="turtle">かめ</string>
+    <string name="turtlecon">かめのせつめい</string>
+    <string name="turtleimage">turtleimage</string>
     <string name="info">info</string>
+    <string name="description">camera picture</string>
 </resources>

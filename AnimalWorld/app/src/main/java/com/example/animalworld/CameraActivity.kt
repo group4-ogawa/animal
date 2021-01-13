@@ -10,20 +10,26 @@ import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.Configuration
 import android.graphics.Bitmap
+import android.graphics.Matrix
 import android.graphics.SurfaceTexture
 import android.hardware.camera2.*
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.util.Size
+import android.view.Display
 import android.view.Surface
 import android.view.TextureView
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 
 //import com.example.animalworld.ml.ConvertedModel
 import kotlinx.android.synthetic.main.activity_camera.*
+
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.File
@@ -34,20 +40,27 @@ import java.util.*
 
 
 class CameraActivity : Activity() {
+
     //CameraDeviceインスタンス用変数
     var mCameraDevice: CameraDevice? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
+        //wall.bringToFront()
+        camera_button.bringToFront()
+        camera_button.scaleType = ImageView.ScaleType.FIT_XY
+        camera_text.bringToFront()
+
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onResume() {
         super.onResume()
 
         if (camera_texture_view.isAvailable) {
             openCamera()
+
+            //updateTransform()
         } else {
             camera_texture_view.surfaceTextureListener = object : TextureView.SurfaceTextureListener {
                 override fun onSurfaceTextureAvailable(surface: SurfaceTexture, width: Int, height: Int) {
@@ -62,12 +75,12 @@ class CameraActivity : Activity() {
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun openCamera() {
+        camera_texture_view.setAspectRatio(1080,1500)
+
         //CameraManagerの取得
         val mCameraManager = applicationContext.getSystemService(Context.CAMERA_SERVICE) as CameraManager
         //利用可能なカメラIDのリストを取得
-        //利用可能なカメラIDのリストを取得
         val cameraIdList = mCameraManager.cameraIdList
-        //用途に合ったカメラIDを設定
         //用途に合ったカメラIDを設定
         var mCameraId: String? = null
         for (cameraId in cameraIdList) {
@@ -83,6 +96,7 @@ class CameraActivity : Activity() {
             }
         }
         //CameraDeviceをオープン 2
+
 
         //CameraDevice.StateCallback詳細
         val mStateCallback: CameraDevice.StateCallback = object : CameraDevice.StateCallback() {
@@ -112,6 +126,10 @@ class CameraActivity : Activity() {
         mCameraManager.openCamera("0", mStateCallback,null)
 
         //撮影ボタンが押されたときの処理. 分類して遷移
+        println("width : ${camera_texture_view.width}")
+        println("height : ${camera_texture_view.height}")
+        println("width : ${camera_texture_view.width}")
+        println("height : ${camera_texture_view.height}")
         camera_button.setOnClickListener {
             var bmp : Bitmap? = null
             try {
@@ -167,8 +185,12 @@ class CameraActivity : Activity() {
             val texture = camera_texture_view!!.surfaceTexture
 
             //バッファのサイズをプレビューサイズに設定(画面サイズ等適当な値を入れる)
-            texture!!.setDefaultBufferSize(1080, 1920)
+            texture!!.setDefaultBufferSize(1080, 1704)
+            //texture!!.setDefaultBufferSize(5, 1704)
+            /*var matrix = Matrix()
+            matrix.preScale(1f,1f)*/
             val surface = Surface(texture)
+
 
             // CaptureRequestを生成
             val mPreviewRequestBuilder = mCameraDevice!!.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW)

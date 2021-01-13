@@ -21,15 +21,16 @@ class RecyclerAdapter(private val context: Context, private val itemClickListene
     }
 
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
-        holder.let {
-            it.itemTextView.text = itemList[position].toString()
-            it.itemImageView.setImageResource(
+        holder.apply {
+            rank.text = (position+1).toString()
+            itemTextView.text = itemList[position].toString()
+            itemImageView.setImageResource(
                 when(itemList[position].name){
-                    "lion" -> R.drawable.samplerion
-                    "cat" -> R.drawable.samplecat
-                    "giraffe" -> R.drawable.miyadsc_6303_tp_v
-                    "turtle" -> R.drawable.sampleturtle
-                    "elephant" -> R.drawable.sampleelephant
+                    "lion" -> R.drawable.lionimage//samplerion
+                    "cat" -> R.drawable.catimage//samplecat
+                    "giraffe" -> R.drawable.giraffeimage//miyadsc_6303_tp_v
+                    "turtle" -> R.drawable.turtleimage//sampleturtle
+                    "elephant" -> R.drawable.elephantimage//sampleelephant
                     else -> R.mipmap.ic_launcher
                 }
             )
